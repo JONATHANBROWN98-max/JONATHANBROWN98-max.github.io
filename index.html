@@ -4,29 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jonathan Brown — Writer & Author</title>
-<meta name="description" content="Official literary archive of Jonathan Brown — writer and author exploring consciousness, technology, desire, ideas and the unknown.">
-<meta name="author" content="Jonathan Brown">
+<title>Jonathan Brown — Literary Archive</title>
+<meta name="description" content="Jonathan Brown — Writer, Author & Literary Archive">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Italiana&display=swap" rel="stylesheet">
 
 <style>
+
+/* =====================================================
+   JONATHAN BROWN — LUXURY CINEMATIC ARCHIVE
+   ===================================================== */
+
 :root{
-  --bg:#080808;
-  --bg2:#0d0d0d;
-  --gold:#d6b36a;
-  --gold-soft:#9e824b;
-  --white:#f4f1e9;
-  --muted:#8f8c84;
-  --line:rgba(214,179,106,.18);
+  --black:#070707;
+  --charcoal:#0e0e0d;
+  --paper:#eee7da;
+  --soft:#b8b0a2;
+  --gold:#c9a86a;
+  --gold-soft:rgba(201,168,106,.25);
+  --violet:#352844;
+  --blue:#20283a;
 }
 
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
 }
 
 html{
@@ -34,1191 +40,2035 @@ html{
 }
 
 body{
-  background:var(--bg);
-  color:var(--white);
-  font-family:Inter,sans-serif;
+  background:var(--black);
+  color:var(--paper);
+  font-family:"Inter",sans-serif;
+  font-weight:300;
+  line-height:1.7;
   overflow-x:hidden;
 }
 
-body:before{
+/* ================= BACKGROUND FOG ================= */
+
+body::before{
   content:"";
   position:fixed;
-  inset:0;
+  inset:-30%;
+  z-index:-10;
   pointer-events:none;
+
   background:
-    radial-gradient(circle at 50% 0%,rgba(214,179,106,.10),transparent 32%),
-    radial-gradient(circle at 90% 70%,rgba(214,179,106,.04),transparent 25%);
-  z-index:-1;
+    radial-gradient(
+      ellipse at 20% 30%,
+      rgba(72,45,91,.22),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      ellipse at 80% 65%,
+      rgba(201,168,106,.10),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      ellipse at 55% 10%,
+      rgba(255,255,255,.035),
+      transparent 22%
+    );
+
+  filter:blur(45px);
+
+  animation:
+    atmosphericFog 24s ease-in-out infinite alternate;
 }
 
-::selection{
-  background:var(--gold);
-  color:#000;
+body::after{
+  content:"";
+  position:fixed;
+  inset:-35%;
+  z-index:-9;
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      ellipse at 30% 70%,
+      rgba(205,205,205,.045),
+      transparent 25%
+    ),
+
+    radial-gradient(
+      ellipse at 75% 25%,
+      rgba(80,60,110,.055),
+      transparent 28%
+    );
+
+  filter:blur(70px);
+
+  animation:
+    deepFog 34s ease-in-out infinite alternate;
 }
+
+@keyframes atmosphericFog{
+
+  0%{
+    transform:translate(-5%,3%) rotate(-2deg) scale(1);
+  }
+
+  100%{
+    transform:translate(6%,-4%) rotate(3deg) scale(1.08);
+  }
+
+}
+
+@keyframes deepFog{
+
+  0%{
+    transform:translate(4%,-3%);
+  }
+
+  100%{
+    transform:translate(-5%,5%);
+  }
+
+}
+
+/* ================= GENERAL ================= */
 
 a{
   color:inherit;
   text-decoration:none;
 }
 
-/* INTRO */
-
-.intro{
-  position:fixed;
-  inset:0;
-  background:#080808;
-  z-index:9999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  animation:introOut 1.2s ease 2.2s forwards;
-  pointer-events:none;
-}
-
-.intro-name{
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(42px,9vw,100px);
-  letter-spacing:.16em;
-  color:var(--white);
-  opacity:0;
-  animation:nameIn 1.4s ease forwards;
-}
-
-.intro-name span{
-  color:var(--gold);
-}
-
-@keyframes nameIn{
-  from{opacity:0;transform:translateY(20px);letter-spacing:.35em}
-  to{opacity:1;transform:translateY(0);letter-spacing:.16em}
-}
-
-@keyframes introOut{
-  to{opacity:0;visibility:hidden}
-}
-
-/* NAV */
-
-nav{
-  position:fixed;
-  top:0;
-  left:0;
+img{
   width:100%;
-  padding:24px 6%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:1000;
-  backdrop-filter:blur(14px);
-  background:linear-gradient(to bottom,rgba(8,8,8,.85),transparent);
-}
-
-.logo{
-  font-family:"Cormorant Garamond",serif;
-  font-size:25px;
-  letter-spacing:.14em;
-  color:var(--gold);
-}
-
-.nav-links{
-  display:flex;
-  gap:30px;
-  font-size:11px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-}
-
-.nav-links a{
-  color:#aaa;
-  position:relative;
-  transition:.4s;
-}
-
-.nav-links a:after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-7px;
-  width:0;
-  height:1px;
-  background:var(--gold);
-  transition:.4s;
-}
-
-.nav-links a:hover{
-  color:var(--white);
-}
-
-.nav-links a:hover:after{
-  width:100%;
-}
-
-/* HERO */
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  padding:100px 20px;
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  width:620px;
-  height:620px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(214,179,106,.12),transparent 68%);
-  animation:breathe 7s ease-in-out infinite;
-}
-
-@keyframes breathe{
-  0%,100%{transform:scale(.9);opacity:.6}
-  50%{transform:scale(1.15);opacity:1}
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  animation:heroIn 1.5s ease 2.5s both;
-}
-
-.eyebrow{
-  color:var(--gold);
-  font-size:11px;
-  letter-spacing:.42em;
-  text-transform:uppercase;
-  margin-bottom:25px;
-}
-
-.hero h1{
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(70px,13vw,170px);
-  font-weight:400;
-  line-height:.82;
-  letter-spacing:-.045em;
-}
-
-.hero h1 span{
   display:block;
-  color:var(--gold);
 }
 
-.hero-description{
-  max-width:650px;
-  margin:42px auto 0;
-  color:#aaa;
-  font-size:14px;
-  line-height:2;
-  letter-spacing:.03em;
+.container{
+  width:min(1160px,calc(100% - 40px));
+  margin:auto;
 }
-
-.hero-line{
-  width:1px;
-  height:90px;
-  background:linear-gradient(to bottom,var(--gold),transparent);
-  margin:55px auto 0;
-}
-
-@keyframes heroIn{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* GENERAL */
 
 section{
-  padding:130px 7%;
   position:relative;
+  padding:120px 0;
 }
 
-.section-label{
+.section-kicker{
   color:var(--gold);
   font-size:10px;
   letter-spacing:.35em;
   text-transform:uppercase;
-  margin-bottom:22px;
+  margin-bottom:18px;
 }
 
 .section-title{
   font-family:"Cormorant Garamond",serif;
-  font-size:clamp(45px,7vw,85px);
+  font-size:clamp(48px,7vw,88px);
   font-weight:400;
-  line-height:.95;
-  margin-bottom:35px;
+  line-height:.92;
+  letter-spacing:-.025em;
 }
 
 .section-intro{
-  max-width:720px;
-  color:#999;
-  line-height:2;
-  font-size:14px;
-}
-
-/* ABOUT */
-
-.about{
-  display:grid;
-  grid-template-columns:1fr 1.2fr;
-  gap:100px;
-  border-top:1px solid var(--line);
-}
-
-.about-text{
-  color:#a7a49d;
-  font-size:15px;
-  line-height:2.1;
-}
-
-.about-text p+p{
+  max-width:700px;
   margin-top:25px;
+  color:#a8a196;
+  font-size:15px;
 }
 
-.signature{
-  margin-top:45px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:34px;
-  font-style:italic;
-  color:var(--gold);
+/* ================= NAVIGATION ================= */
+
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+
+  padding:20px 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,5,5,.94),
+      rgba(5,5,5,.45),
+      transparent
+    );
+
+  backdrop-filter:blur(10px);
 }
 
-/* QUOTE */
-
-.quote{
-  min-height:55vh;
+.nav-inner{
   display:flex;
   align-items:center;
-  justify-content:center;
-  text-align:center;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
+  justify-content:space-between;
 }
 
-.quote-mark{
-  font-family:"Cormorant Garamond",serif;
+.logo{
+  font-family:"Italiana",serif;
+  font-size:22px;
+  letter-spacing:.08em;
+}
+
+.nav-links{
+  display:flex;
+  gap:25px;
+
+  font-size:10px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+
+  color:#aaa39a;
+}
+
+.nav-links a{
+  transition:.35s ease;
+}
+
+.nav-links a:hover{
   color:var(--gold);
-  font-size:90px;
-  line-height:.5;
 }
 
-.quote blockquote{
-  max-width:900px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(36px,5vw,70px);
-  line-height:1.1;
-  font-weight:300;
-}
+/* ================= INTRO ================= */
 
-/* BOOKS */
+.intro{
+  min-height:100vh;
 
-.books{
-  border-bottom:1px solid var(--line);
-}
-
-.books-grid{
-  margin-top:70px;
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:2px;
-}
+  place-items:center;
 
-.book{
-  min-height:430px;
-  padding:55px;
-  background:linear-gradient(145deg,#111,#0a0a0a);
-  border:1px solid rgba(255,255,255,.04);
+  text-align:center;
+
   position:relative;
   overflow:hidden;
-  transition:.7s cubic-bezier(.2,.8,.2,1);
 }
 
-.book:before{
+.intro::before{
   content:"";
+
   position:absolute;
-  width:250px;
-  height:250px;
-  right:-100px;
-  top:-100px;
+
+  width:70vw;
+  height:70vw;
+
+  max-width:900px;
+  max-height:900px;
+
   border-radius:50%;
-  background:radial-gradient(circle,rgba(214,179,106,.16),transparent 70%);
-  transition:.7s;
+
+  border:1px solid rgba(201,168,106,.10);
+
+  animation:
+    slowOrbit 25s linear infinite;
 }
 
-.book:hover{
-  transform:translateY(-10px);
-  border-color:var(--line);
+@keyframes slowOrbit{
+
+  to{
+    transform:rotate(360deg);
+  }
+
 }
 
-.book:hover:before{
-  transform:scale(1.7);
+.intro-inner{
+  position:relative;
+  z-index:2;
+  padding:100px 20px;
+
+  animation:
+    introAppear 2s ease forwards;
 }
 
-.book-number{
+@keyframes introAppear{
+
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+.intro-small{
   color:var(--gold);
+
   font-size:10px;
-  letter-spacing:.3em;
+  letter-spacing:.5em;
+  text-transform:uppercase;
+
+  margin-bottom:32px;
 }
 
-.book h3{
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(34px,4vw,52px);
+.intro-name{
+  font-family:"Italiana","Cormorant Garamond",serif;
+
+  font-size:clamp(
+    68px,
+    13vw,
+    175px
+  );
+
   font-weight:400;
-  line-height:1;
-  margin:45px 0 30px;
-  max-width:600px;
+
+  line-height:.78;
+
+  letter-spacing:-.055em;
+
+  text-shadow:
+    0 0 60px rgba(201,168,106,.08);
 }
 
-.book-count{
-  position:absolute;
-  bottom:40px;
-  left:55px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:38px;
-  color:var(--gold);
+.intro-name span{
+  display:block;
 }
 
-.book-count small{
-  font-family:Inter,sans-serif;
-  font-size:9px;
-  letter-spacing:.2em;
-  color:#777;
+.birth{
+  margin-top:40px;
+
+  color:#999188;
+
+  font-size:10px;
+
+  letter-spacing:.45em;
+
   text-transform:uppercase;
 }
 
-/* JOURNEY */
+.enter{
+  display:inline-block;
 
-.journey{
-  border-bottom:1px solid var(--line);
+  margin-top:60px;
+
+  padding:13px 24px;
+
+  border:
+    1px solid
+    rgba(201,168,106,.28);
+
+  font-size:10px;
+
+  letter-spacing:.28em;
+
+  text-transform:uppercase;
+
+  transition:.45s ease;
 }
+
+.enter:hover{
+  color:var(--gold);
+
+  border-color:var(--gold);
+
+  background:
+    rgba(201,168,106,.06);
+
+  transform:translateY(-4px);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:90vh;
+
+  display:flex;
+  align-items:center;
+
+  border-bottom:
+    1px solid
+    rgba(201,168,106,.16);
+}
+
+.hero-grid{
+  display:grid;
+
+  grid-template-columns:
+    1.15fr .85fr;
+
+  gap:80px;
+
+  align-items:end;
+}
+
+.hero-title{
+  font-family:"Cormorant Garamond",serif;
+
+  font-size:
+    clamp(
+      78px,
+      13vw,
+      175px
+    );
+
+  font-weight:300;
+
+  line-height:.76;
+
+  letter-spacing:-.06em;
+}
+
+.hero-title em{
+  font-style:italic;
+  color:#bfb4a4;
+}
+
+.hero-copy{
+  max-width:430px;
+
+  color:#aaa39a;
+
+  margin-bottom:12px;
+}
+
+.hero-rule{
+  width:110px;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      transparent
+    );
+
+  margin:25px 0;
+}
+
+.hero-note{
+  color:#7f786f;
+
+  font-size:10px;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+}
+
+/* ================= QUOTE ================= */
+
+.quote{
+  padding:110px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(201,168,106,.025),
+      rgba(60,45,75,.08),
+      rgba(201,168,106,.025)
+    );
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.03);
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.03);
+}
+
+.quote p{
+  max-width:1000px;
+
+  font-family:"Cormorant Garamond",serif;
+
+  font-size:
+    clamp(
+      36px,
+      5vw,
+      65px
+    );
+
+  line-height:1;
+
+  color:#ded5c7;
+}
+
+.quote small{
+  display:block;
+
+  margin-top:30px;
+
+  color:var(--gold);
+
+  font-size:10px;
+
+  letter-spacing:.25em;
+
+  text-transform:uppercase;
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+  display:grid;
+
+  grid-template-columns:
+    .7fr 1.3fr;
+
+  gap:100px;
+}
+
+.about-text{
+  font-family:"Cormorant Garamond",serif;
+
+  font-size:
+    clamp(
+      26px,
+      3vw,
+      39px
+    );
+
+  line-height:1.18;
+
+  color:#d1c8ba;
+}
+
+.about-text p+p{
+  margin-top:28px;
+}
+
+/* ================= BOOKS ================= */
+
+.books-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:22px;
+
+  margin-top:60px;
+}
+
+.book{
+  position:relative;
+
+  min-height:310px;
+
+  padding:35px;
+
+  overflow:hidden;
+
+  border:
+    1px solid
+    rgba(201,168,106,.18);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.035),
+      rgba(255,255,255,.008)
+    );
+
+  transition:
+    transform .55s ease,
+    border-color .55s ease;
+}
+
+.book::before{
+  content:"";
+
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  left:-250px;
+  top:-250px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(201,168,106,.10),
+      transparent 60%
+    );
+
+  transition:
+    transform 1s ease;
+}
+
+.book:hover{
+  transform:translateY(-9px);
+
+  border-color:
+    rgba(201,168,106,.55);
+}
+
+.book:hover::before{
+  transform:
+    translate(
+      220px,
+      220px
+    );
+}
+
+.book-number{
+  position:relative;
+
+  color:var(--gold);
+
+  font-size:10px;
+
+  letter-spacing:.23em;
+
+  text-transform:uppercase;
+}
+
+.book h3{
+  position:relative;
+
+  font-family:"Cormorant Garamond",serif;
+
+  font-size:42px;
+
+  font-weight:400;
+
+  line-height:1;
+
+  margin:38px 0 23px;
+}
+
+.book p{
+  position:relative;
+
+  color:#958f86;
+
+  max-width:450px;
+}
+
+.book-link{
+  position:relative;
+
+  display:inline-block;
+
+  margin-top:28px;
+
+  color:#d3c19f;
+
+  font-size:10px;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+}
+
+/* ================= JOURNEY ================= */
 
 .timeline{
-  margin-top:80px;
-  position:relative;
-}
+  margin-top:60px;
 
-.timeline:before{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:0;
-  bottom:0;
-  width:1px;
-  background:var(--line);
+  border-left:
+    1px solid
+    rgba(201,168,106,.25);
 }
 
 .event{
-  width:50%;
-  padding:20px 70px 70px 0;
   position:relative;
+
+  padding:
+    0
+    0
+    60px
+    48px;
 }
 
-.event:nth-child(even){
-  margin-left:50%;
-  padding:20px 0 70px 70px;
-}
-
-.event:after{
+.event::before{
   content:"";
+
   position:absolute;
-  right:-5px;
-  top:28px;
+
+  left:-5px;
+  top:8px;
+
   width:9px;
   height:9px;
-  border:1px solid var(--gold);
-  background:var(--bg);
-  border-radius:50%;
-  box-shadow:0 0 18px rgba(214,179,106,.4);
-}
 
-.event:nth-child(even):after{
-  left:-5px;
+  border-radius:50%;
+
+  background:var(--gold);
+
+  box-shadow:
+    0 0 25px
+    rgba(201,168,106,.4);
 }
 
 .event-year{
   color:var(--gold);
-  font-size:11px;
-  letter-spacing:.3em;
+
+  font-size:10px;
+
+  letter-spacing:.25em;
+
+  text-transform:uppercase;
 }
 
 .event h3{
   font-family:"Cormorant Garamond",serif;
-  font-size:35px;
+
+  font-size:40px;
+
   font-weight:400;
-  margin:15px 0;
+
+  margin:8px 0;
 }
 
 .event p{
-  color:#888;
-  line-height:1.9;
-  font-size:13px;
+  max-width:720px;
+
+  color:#989188;
 }
 
-/* ARTICLES */
+/* ================= ARTICLES ================= */
 
-.articles{
-  border-bottom:1px solid var(--line);
+.articles-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:20px;
+
+  margin-top:60px;
 }
 
 .article{
-  display:grid;
-  grid-template-columns:130px 1fr 40px;
-  gap:30px;
-  padding:38px 0;
-  border-top:1px solid rgba(255,255,255,.07);
-  transition:.4s;
+  min-height:260px;
+
+  padding:30px;
+
+  border-top:
+    1px solid
+    rgba(201,168,106,.25);
+
+  background:
+    rgba(255,255,255,.012);
+
+  transition:.45s ease;
 }
 
 .article:hover{
-  padding-left:15px;
+  transform:translateY(-7px);
+
+  background:
+    rgba(201,168,106,.035);
 }
 
-.article-number{
+.article span{
   color:var(--gold);
-  font-size:11px;
-  letter-spacing:.2em;
+
+  font-size:10px;
+
+  letter-spacing:.23em;
+
+  text-transform:uppercase;
 }
 
 .article h3{
   font-family:"Cormorant Garamond",serif;
-  font-size:35px;
+
+  font-size:32px;
+
   font-weight:400;
+
+  line-height:1.05;
+
+  margin:26px 0 16px;
 }
 
 .article p{
-  margin-top:8px;
-  color:#777;
-  font-size:13px;
-  line-height:1.7;
+  color:#918b82;
+
+  font-size:14px;
 }
 
-.arrow{
-  color:var(--gold);
-  font-size:25px;
-}
-
-/* ARCHIVE */
+/* ================= ARCHIVE ================= */
 
 .archive{
+  padding:75px 60px;
+
+  border:
+    1px solid
+    rgba(201,168,106,.22);
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.03),
+      rgba(60,45,75,.06)
+    );
+}
+
+.archive-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:80px;
-  border-bottom:1px solid var(--line);
+
+  align-items:center;
 }
 
-.archive-box{
-  padding:45px;
-  border:1px solid var(--line);
-  background:#0b0b0b;
+.archive-mark{
+  font-family:"Italiana",serif;
+
+  font-size:125px;
+
+  line-height:.7;
+
+  color:
+    rgba(201,168,106,.14);
 }
 
-.archive-box h3{
-  font-family:"Cormorant Garamond",serif;
-  font-size:42px;
-  font-weight:400;
-  margin-bottom:20px;
+.archive p{
+  color:#9f988d;
 }
 
-.archive-box p{
-  color:#888;
-  font-size:13px;
-  line-height:1.9;
-}
-
-/* LIBRARIES */
-
-.libraries{
-  border-bottom:1px solid var(--line);
-}
+/* ================= LIBRARIES ================= */
 
 .library-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-  margin-top:65px;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:26px;
+
+  margin-top:60px;
 }
 
-.library{
-  min-height:250px;
-  padding:35px;
-  border:1px solid rgba(255,255,255,.08);
-  background:linear-gradient(135deg,#111,#090909);
-  position:relative;
+.library-card{
   overflow:hidden;
-  transition:.6s;
+
+  border:
+    1px solid
+    rgba(201,168,106,.25);
+
+  background:#0c0c0b;
+
+  transition:
+    transform .6s ease,
+    border-color .6s ease;
 }
 
-.library:hover{
-  transform:translateY(-7px);
-  border-color:var(--gold-soft);
+.library-card:hover{
+  transform:translateY(-8px);
+
+  border-color:
+    rgba(201,168,106,.65);
 }
 
-.library:before{
+.library-image{
+  height:330px;
+
+  overflow:hidden;
+
+  position:relative;
+}
+
+.library-image img{
+  height:100%;
+
+  object-fit:cover;
+
+  filter:
+    saturate(.75)
+    contrast(1.05);
+
+  transition:
+    transform 1.2s ease;
+}
+
+.library-card:hover
+.library-image img{
+  transform:scale(1.07);
+}
+
+.library-image::after{
   content:"";
+
   position:absolute;
+
   inset:0;
-  background:linear-gradient(120deg,transparent,rgba(214,179,106,.07),transparent);
-  transform:translateX(-100%);
-  transition:.8s;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 40%,
+      rgba(0,0,0,.65)
+    );
 }
 
-.library:hover:before{
-  transform:translateX(100%);
+.library-info{
+  padding:30px;
 }
 
-.library span{
-  font-size:9px;
-  color:var(--gold);
-  letter-spacing:.3em;
-  text-transform:uppercase;
-}
-
-.library h3{
+.library-info h3{
   font-family:"Cormorant Garamond",serif;
+
   font-size:38px;
+
   font-weight:400;
-  margin:25px 0 5px;
+
+  line-height:1;
 }
 
-.library p{
-  color:#777;
-  font-size:12px;
-}
-
-.library-link{
-  position:absolute;
-  bottom:28px;
-  right:30px;
+.library-place{
   color:var(--gold);
-  font-size:11px;
-  letter-spacing:.18em;
+
+  font-size:10px;
+
+  letter-spacing:.23em;
+
   text-transform:uppercase;
+
+  margin:12px 0 20px;
 }
 
-/* CONTACT */
+.library-links{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+}
+
+.library-links a{
+  padding:9px 13px;
+
+  border:
+    1px solid
+    rgba(201,168,106,.25);
+
+  color:#bdb4a4;
+
+  font-size:10px;
+
+  letter-spacing:.13em;
+
+  text-transform:uppercase;
+
+  transition:.3s ease;
+}
+
+.library-links a:hover{
+  color:var(--gold);
+
+  border-color:var(--gold);
+}
+
+.credit{
+  margin-top:17px;
+
+  color:#706a62;
+
+  font-size:9px;
+
+  line-height:1.5;
+}
+
+/* ================= CONTACT ================= */
 
 .contact{
-  min-height:70vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   text-align:center;
+
+  padding-bottom:150px;
 }
 
-.contact h2{
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(55px,9vw,120px);
-  font-weight:300;
-  line-height:.9;
+.contact-name{
+  font-family:"Italiana",serif;
+
+  font-size:
+    clamp(
+      58px,
+      9vw,
+      125px
+    );
+
+  margin:20px 0;
 }
 
-.contact h2 span{
-  color:var(--gold);
-}
-
-.contact p{
-  margin:35px auto;
-  color:#888;
-  max-width:550px;
-  line-height:1.9;
-}
-
-.contact-link{
+.instagram{
   display:inline-block;
-  margin-top:15px;
-  padding:15px 35px;
-  border:1px solid var(--gold-soft);
-  color:var(--gold);
+
+  padding:14px 27px;
+
+  border:
+    1px solid
+    rgba(201,168,106,.28);
+
   font-size:10px;
-  letter-spacing:.3em;
+
+  letter-spacing:.23em;
+
   text-transform:uppercase;
-  transition:.4s;
+
+  transition:.4s ease;
 }
 
-.contact-link:hover{
-  background:var(--gold);
-  color:#000;
+.instagram:hover{
+  color:var(--gold);
+
+  background:
+    rgba(201,168,106,.07);
+
+  border-color:var(--gold);
+
+  transform:translateY(-4px);
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
-  padding:45px 7%;
-  border-top:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  color:#555;
+  padding:35px 0;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.08);
+
+  color:#6e6961;
+
   font-size:10px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
+
+  letter-spacing:.13em;
 }
 
-footer strong{
-  color:var(--gold);
-  font-weight:400;
+.footer-inner{
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:20px;
 }
 
-/* SCROLL REVEAL */
+/* ================= REVEAL ================= */
 
 .reveal{
   opacity:0;
-  transform:translateY(45px);
-  transition:1s cubic-bezier(.2,.7,.2,1);
+
+  transform:
+    translateY(35px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
 }
 
-.reveal.active{
+.reveal.visible{
   opacity:1;
-  transform:translateY(0);
+
+  transform:
+    translateY(0);
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:800px){
-
-  nav{
-    padding:20px;
-  }
 
   .nav-links{
     display:none;
   }
 
-  .hero{
-    min-height:92vh;
-  }
-
-  .hero h1{
-    font-size:70px;
-  }
-
   section{
-    padding:90px 22px;
+    padding:85px 0;
   }
 
-  .about{
+  .container{
+    width:
+      min(
+        calc(100% - 28px),
+        1160px
+      );
+  }
+
+  .hero{
+    min-height:85vh;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .archive-grid{
     grid-template-columns:1fr;
-    gap:35px;
+
+    gap:45px;
+  }
+
+  .hero-title{
+    font-size:
+      clamp(
+        72px,
+        22vw,
+        125px
+      );
   }
 
   .books-grid,
   .library-grid,
-  .archive{
+  .articles-grid{
     grid-template-columns:1fr;
   }
 
-  .book{
-    min-height:370px;
-    padding:35px;
+  .library-image{
+    height:270px;
   }
 
-  .book-count{
-    left:35px;
+  .archive{
+    padding:45px 25px;
   }
 
-  .timeline:before{
-    left:7px;
+  .archive-mark{
+    font-size:90px;
   }
 
-  .event,
-  .event:nth-child(even){
-    width:100%;
-    margin-left:0;
-    padding:20px 0 60px 35px;
-  }
-
-  .event:after,
-  .event:nth-child(even):after{
-    left:3px;
-    right:auto;
-  }
-
-  .article{
-    grid-template-columns:45px 1fr;
-  }
-
-  .arrow{
-    display:none;
-  }
-
-  .article h3{
-    font-size:29px;
-  }
-
-  footer{
+  .footer-inner{
     flex-direction:column;
-    gap:15px;
-    text-align:center;
   }
+
 }
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="intro">
-  <div class="intro-name">Jonathan <span>Brown</span></div>
+<!-- ================= NAV ================= -->
+
+<nav class="nav">
+
+<div class="container nav-inner">
+
+<a href="#top" class="logo">
+JONATHAN BROWN
+</a>
+
+<div class="nav-links">
+
+<a href="#about">About</a>
+
+<a href="#books">Books</a>
+
+<a href="#journey">Journey</a>
+
+<a href="#libraries">Libraries</a>
+
+<a href="#contact">Connect</a>
+
 </div>
 
-<nav>
-  <a href="#home" class="logo">JB</a>
+</div>
 
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#books">Works</a>
-    <a href="#journey">Journey</a>
-    <a href="#archive">Archive</a>
-    <a href="#libraries">Research</a>
-    <a href="#contact">Contact</a>
-  </div>
 </nav>
 
-<main>
 
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="eyebrow">Writer · Author · Literary Archive</div>
+<!-- ================= INTRO ================= -->
 
-    <h1>
-      Jonathan
-      <span>Brown</span>
-    </h1>
+<header class="intro" id="top">
 
-    <p class="hero-description">
-      A writer exploring consciousness, technology, desire,
-      human awareness and the questions that remain after certainty ends.
-    </p>
+<div class="intro-inner">
 
-    <div class="hero-line"></div>
-  </div>
+<div class="intro-small">
+Writer · Author · Literary Archive
+</div>
+
+<h1 class="intro-name">
+
+<span>Jonathan</span>
+
+<span>Brown</span>
+
+</h1>
+
+<div class="birth">
+03 · JUNE · 2008
+</div>
+
+<a href="#home" class="enter">
+Enter the archive
+</a>
+
+</div>
+
+</header>
+
+
+<main id="home">
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container hero-grid reveal">
+
+<div>
+
+<div class="section-kicker">
+The Archive
+</div>
+
+<h2 class="hero-title">
+Jonathan<br>
+<em>Brown</em>
+</h2>
+
+</div>
+
+<div class="hero-copy">
+
+<div class="hero-rule"></div>
+
+<p>
+A literary archive devoted to consciousness,
+technology, desire, human awareness,
+and the unknown.
+</p>
+
+<div class="hero-rule"></div>
+
+<div class="hero-note">
+Writer · Author · Observer
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<section class="about reveal" id="about">
+<!-- ================= QUOTE ================= -->
 
-  <div>
-    <div class="section-label">01 — The Author</div>
-    <h2 class="section-title">A life<br>in words.</h2>
-  </div>
+<section class="quote">
 
-  <div class="about-text">
+<div class="container reveal">
 
-    <p>
-      Jonathan Brown is a writer whose work moves between philosophy,
-      consciousness, technology, desire and the unexplained.
-      His books are built around questions rather than answers,
-      exploring the space where human thought meets uncertainty.
-    </p>
+<p>
+“Some ideas do not arrive as answers.
+They arrive as echoes.”
+</p>
 
-    <p>
-      His literary journey began in Richmond, Britain,
-      before expanding through Australia and beyond.
-      His work developed across different cities and cultures,
-      gradually becoming an international literary project.
-    </p>
+<small>
+Jonathan Brown · Literary Archive
+</small>
 
-    <p>
-      Rather than treating writing as a simple act of storytelling,
-      Jonathan approaches the page as an archive of ideas —
-      a place where memory, observation and imagination can coexist.
-    </p>
-
-    <div class="signature">Jonathan Brown</div>
-
-  </div>
-</section>
-
-
-<section class="quote reveal">
-
-  <div>
-    <div class="quote-mark">“</div>
-
-    <blockquote>
-      Every idea begins as a question
-      before it becomes a story.
-    </blockquote>
-  </div>
+</div>
 
 </section>
 
 
-<section class="books reveal" id="books">
+<!-- ================= ABOUT ================= -->
 
-  <div class="section-label">02 — Selected Works</div>
+<section id="about">
 
-  <h2 class="section-title">The Books.</h2>
+<div class="container about-grid reveal">
 
-  <p class="section-intro">
-    Four works forming an evolving literary archive.
-    Each book explores a different territory of thought,
-    from awareness and desire to algorithms, memory and oblivion.
-  </p>
+<div>
 
-  <div class="books-grid">
+<div class="section-kicker">
+About
+</div>
 
-    <a class="book"
-       href="https://jonthanbrownworks.blogspot.com/2026/08/relative-awarenes-by-jonathan-brown.html"
-       target="_blank">
+<h2 class="section-title">
+A writer<br>
+in motion.
+</h2>
 
-      <div class="book-number">01 / 2026</div>
+</div>
 
-      <h3>Relative Awareness</h3>
+<div class="about-text">
 
-      <div class="book-count">
-        289K
-        <small>reported reach</small>
-      </div>
+<p>
+Jonathan Brown began writing in Richmond,
+Britain, developing a body of work shaped by
+questions of consciousness, human desire,
+technology and the hidden structures of awareness.
+</p>
 
-    </a>
+<p>
+His literary journey later expanded through
+Australia, beginning with a first publication in
+Melbourne and continuing through Sydney as an
+exploratory chapter in his work.
+</p>
 
+<p>
+The archive now gathers his books, ideas,
+essays and places of research into one evolving
+literary space.
+</p>
 
-    <a class="book"
-       href="https://jonthanbrownworks.blogspot.com/2026/09/the-first-algorithms-echo-when-stone.html"
-       target="_blank">
+</div>
 
-      <div class="book-number">02 / 2026</div>
+</div>
 
-      <h3>The First Algorithm’s Echo:<br>When the Stone Spoke</h3>
-
-      <div class="book-count">
-        355K
-        <small>reported reach</small>
-      </div>
-
-    </a>
-
-
-    <a class="book"
-       href="https://jonthanbrownworks.blogspot.com/2026/09/blog-post.html"
-       target="_blank">
-
-      <div class="book-number">03 / 2026</div>
-
-      <h3>The Psychology of Eternal Thirst</h3>
-
-      <div class="book-count">
-        162K
-        <small>reported reach</small>
-      </div>
-
-    </a>
-
-
-    <a class="book"
-       href="https://jonthanbrownworks.blogspot.com/2026/09/blog-post_16.html"
-       target="_blank">
-
-      <div class="book-number">04 / 2026</div>
-
-      <h3>The Authorized Archive of Oblivion</h3>
-
-      <div class="book-count">
-        68K
-        <small>reported reach</small>
-      </div>
-
-    </a>
-
-  </div>
 </section>
 
 
-<section class="journey reveal" id="journey">
+<!-- ================= BOOKS ================= -->
 
-  <div class="section-label">03 — The Journey</div>
+<section id="books">
 
-  <h2 class="section-title">The road<br>behind the books.</h2>
+<div class="container reveal">
 
-  <p class="section-intro">
-    A literary journey shaped by movement, cities,
-    publication and the gradual expansion of an independent body of work.
-  </p>
+<div class="section-kicker">
+Selected Works
+</div>
 
-  <div class="timeline">
+<h2 class="section-title">
+Books
+</h2>
 
-    <div class="event">
-      <div class="event-year">01 — BEGINNING</div>
-      <h3>Richmond, Britain</h3>
-      <p>
-        The beginning of the writing journey.
-        A place where the first ideas began to take form
-        and writing became a serious pursuit.
-      </p>
-    </div>
+<p class="section-intro">
+A growing collection of works exploring
+awareness, algorithms, desire and the strange
+borders between the human and the unknown.
+</p>
 
-    <div class="event">
-      <div class="event-year">02 — FIRST PUBLICATION</div>
-      <h3>Melbourne, Australia</h3>
-      <p>
-        The work expanded to Australia,
-        where the first book was published in Melbourne,
-        opening a new chapter in the literary journey.
-      </p>
-    </div>
 
-    <div class="event">
-      <div class="event-year">03 — EXPLORATION</div>
-      <h3>Sydney</h3>
-      <p>
-        The journey continued through Sydney,
-        allowing the work to develop across another cultural
-        and intellectual environment.
-      </p>
-    </div>
+<div class="books-grid">
 
-    <div class="event">
-      <div class="event-year">04 — BEYOND BORDERS</div>
-      <h3>An expanding archive</h3>
-      <p>
-        The books subsequently reached readers and audiences
-        across the United States, the Netherlands, South Africa,
-        Asia and New Zealand.
-      </p>
-    </div>
 
-  </div>
+<article class="book">
+
+<div class="book-number">
+01 · Reported reach · 289K
+</div>
+
+<h3>
+Relative Awareness
+</h3>
+
+<p>
+A work centered on the shifting boundaries
+of perception, awareness and the observer.
+</p>
+
+<a
+class="book-link"
+target="_blank"
+rel="noopener"
+href="https://jonthanbrownworks.blogspot.com/2026/08/relative-awarenes-by-jonathan-brown.html">
+
+Explore the work →
+
+</a>
+
+</article>
+
+
+
+<article class="book">
+
+<div class="book-number">
+02 · Reported reach · 355K
+</div>
+
+<h3>
+The First Algorithm’s Echo:
+<br>
+When the Stone Spoke
+</h3>
+
+<p>
+An inquiry into the first traces of intelligence,
+memory and the possibility that matter can
+carry an echo.
+</p>
+
+<a
+class="book-link"
+target="_blank"
+rel="noopener"
+href="https://jonthanbrownworks.blogspot.com/2026/09/the-first-algorithms-echo-when-stone.html">
+
+Explore the work →
+
+</a>
+
+</article>
+
+
+
+<article class="book">
+
+<div class="book-number">
+03 · Reported reach · 162K
+</div>
+
+<h3>
+The Psychology of Eternal Thirst
+</h3>
+
+<p>
+A literary exploration of longing, appetite,
+desire and the human search for something
+that never quite ends.
+</p>
+
+<a
+class="book-link"
+target="_blank"
+rel="noopener"
+href="https://jonthanbrownworks.blogspot.com/2026/09/blog-post.html">
+
+Explore the work →
+
+</a>
+
+</article>
+
+
+
+<article class="book">
+
+<div class="book-number">
+04 · Reported reach · 68K
+</div>
+
+<h3>
+The Authorized Archive of Oblivion
+</h3>
+
+<p>
+A darker archival work concerned with memory,
+disappearance, documents and the architecture
+of forgetting.
+</p>
+
+<a
+class="book-link"
+target="_blank"
+rel="noopener"
+href="https://jonthanbrownworks.blogspot.com/2026/09/blog-post_16.html">
+
+Explore the work →
+
+</a>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= JOURNEY ================= -->
+
+<section id="journey">
+
+<div class="container reveal">
+
+<div class="section-kicker">
+The Journey
+</div>
+
+<h2 class="section-title">
+Places &amp;<br>
+chapters.
+</h2>
+
+
+<div class="timeline">
+
+
+<div class="event">
+
+<div class="event-year">
+Beginning · Richmond
+</div>
+
+<h3>
+Britain
+</h3>
+
+<p>
+The beginning of the writing journey in Richmond,
+where the first foundations of the archive took shape.
+</p>
+
+</div>
+
+
+
+<div class="event">
+
+<div class="event-year">
+First publication · Melbourne
+</div>
+
+<h3>
+Australia
+</h3>
+
+<p>
+The work expanded into Australia,
+with the first publication associated with Melbourne.
+</p>
+
+</div>
+
+
+
+<div class="event">
+
+<div class="event-year">
+Exploration · Sydney
+</div>
+
+<h3>
+Sydney
+</h3>
+
+<p>
+A further chapter of exploration,
+observation and literary development.
+</p>
+
+</div>
+
+
+
+<div class="event">
+
+<div class="event-year">
+Expanding archive
+</div>
+
+<h3>
+Beyond borders
+</h3>
+
+<p>
+The books were described by the author as reaching
+readers and audiences across the United States,
+Netherlands, South Africa, Asia and New Zealand.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
 </section>
 
 
-<section class="articles reveal">
+<!-- ================= ARTICLES ================= -->
 
-  <div class="section-label">04 — Written Thought</div>
+<section>
 
-  <h2 class="section-title">Articles & Ideas.</h2>
+<div class="container reveal">
 
-  <p class="section-intro">
-    Short literary reflections accompanying the larger archive.
-  </p>
+<div class="section-kicker">
+Articles &amp; Ideas
+</div>
 
-  <div style="margin-top:65px;">
+<h2 class="section-title">
+Fragments of<br>
+thought.
+</h2>
 
-    <article class="article">
-      <div class="article-number">01</div>
-      <div>
-        <h3>The Architecture of a Question</h3>
-        <p>
-          Why the most important ideas often begin before
-          we know what question we are asking.
-        </p>
-      </div>
-      <div class="arrow">↗</div>
-    </article>
 
-    <article class="article">
-      <div class="article-number">02</div>
-      <div>
-        <h3>When Memory Becomes an Archive</h3>
-        <p>
-          Memory is not simply what remains.
-          It is also what we choose to preserve.
-        </p>
-      </div>
-      <div class="arrow">↗</div>
-    </article>
+<div class="articles-grid">
 
-    <article class="article">
-      <div class="article-number">03</div>
-      <div>
-        <h3>The Human Desire for the Unknown</h3>
-        <p>
-          The unknown has always occupied a strange place
-          between fear, curiosity and imagination.
-        </p>
-      </div>
-      <div class="arrow">↗</div>
-    </article>
 
-    <article class="article">
-      <div class="article-number">04</div>
-      <div>
-        <h3>Writing Beyond the Page</h3>
-        <p>
-          A book can become more than a story:
-          it can become a record of the questions of its time.
-        </p>
-      </div>
-      <div class="arrow">↗</div>
-    </article>
+<article class="article">
 
-  </div>
+<span>
+01 · Consciousness
+</span>
+
+<h3>
+The Architecture of Awareness
+</h3>
+
+<p>
+Where does awareness begin:
+inside the mind, between people,
+or somewhere beyond the observer?
+</p>
+
+</article>
+
+
+
+<article class="article">
+
+<span>
+02 · Technology
+</span>
+
+<h3>
+When the Machine Remembers
+</h3>
+
+<p>
+Memory changes when it is no longer
+carried by one mind. The archive becomes
+part of the machine.
+</p>
+
+</article>
+
+
+
+<article class="article">
+
+<span>
+03 · Desire
+</span>
+
+<h3>
+The Shape of Eternal Thirst
+</h3>
+
+<p>
+Desire is rarely about the object itself.
+Sometimes it is the distance that keeps
+the object alive.
+</p>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ARCHIVE ================= -->
+
+<section>
+
+<div class="container reveal">
+
+<div class="archive">
+
+<div class="archive-grid">
+
+<div>
+
+<div class="section-kicker">
+The Archive
+</div>
+
+<h2 class="section-title">
+A place for<br>
+what remains.
+</h2>
+
+</div>
+
+<div>
+
+<div class="archive-mark">
+JB
+</div>
+
+<p>
+The archive gathers books, fragments,
+ideas, references and places of research
+into a single evolving record of the
+author’s work.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<section class="archive reveal" id="archive">
+<!-- ================= LIBRARIES ================= -->
 
-  <div>
-    <div class="section-label">05 — The Archive</div>
-    <h2 class="section-title">A record<br>of the work.</h2>
+<section id="libraries">
 
-    <p class="section-intro">
-      The archive gathers the books, ideas and references
-      surrounding the ongoing literary work of Jonathan Brown.
-    </p>
-  </div>
+<div class="container reveal">
 
-  <div>
+<div class="section-kicker">
+Libraries &amp; Research
+</div>
 
-    <div class="archive-box">
-      <h3>Publication Archive</h3>
-      <p>
-        A growing record of published works and literary projects,
-        preserving the evolution of the author's writing from one
-        work to the next.
-      </p>
-    </div>
+<h2 class="section-title">
+Houses of<br>
+knowledge.
+</h2>
 
-    <br>
+<p class="section-intro">
+Selected libraries connected to the literary
+and research landscape of Britain and Australia.
+</p>
 
-    <div class="archive-box">
-      <h3>Research Archive</h3>
-      <p>
-        A collection of cultural and research references
-        connected to the ideas, places and institutions surrounding
-        the work.
-      </p>
-    </div>
 
-  </div>
+<div class="library-grid">
+
+
+<!-- BRITISH LIBRARY -->
+
+<article class="library-card">
+
+<div class="library-image">
+
+<img
+loading="lazy"
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/British_library_london.jpg"
+alt="British Library London">
+
+</div>
+
+<div class="library-info">
+
+<h3>
+British Library
+</h3>
+
+<div class="library-place">
+London · United Kingdom
+</div>
+
+<div class="library-links">
+
+<a
+target="_blank"
+rel="noopener"
+href="https://www.bl.uk/">
+
+Official site
+
+</a>
+
+<a
+target="_blank"
+rel="noopener"
+href="https://www.instagram.com/britishlibrary/">
+
+Instagram
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- STATE LIBRARY VICTORIA -->
+
+<article class="library-card">
+
+<div class="library-image">
+
+<img
+loading="lazy"
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/State_Library_Victoria_exterior.jpg"
+alt="State Library Victoria Melbourne">
+
+</div>
+
+<div class="library-info">
+
+<h3>
+State Library Victoria
+</h3>
+
+<div class="library-place">
+Melbourne · Australia
+</div>
+
+<div class="library-links">
+
+<a
+target="_blank"
+rel="noopener"
+href="https://www.slv.vic.gov.au/">
+
+Official site
+
+</a>
+
+<a
+target="_blank"
+rel="noopener"
+href="https://www.instagram.com/library_vic/">
+
+Instagram
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- NATIONAL LIBRARY AUSTRALIA -->
+
+<article class="library-card">
+
+<div class="library-image">
+
+<img
+loading="lazy"
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/South_fa%C3%A7ade_of_the_National_Library_of_Australia.jpg"
+alt="National Library of Australia Canberra">
+
+</div>
+
+<div class="library-info">
+
+<h3>
+National Library of Australia
+</h3>
+
+<div class="library-place">
+Canberra · Australia
+</div>
+
+<div class="library-links">
+
+<a
+target="_blank"
+rel="noopener"
+href="https://www.nla.gov.au/">
+
+Official site
+
+</a>
+
+<a
+target="_blank"
+rel="noopener"
+href="https://www.instagram.com/nationallibraryaus/">
+
+Instagram
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- STATE LIBRARY NSW -->
+
+<article class="library-card">
+
+<div class="library-image">
+
+<img
+loading="lazy"
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The_State_Library_of_New_South_Wales.jpg"
+alt="State Library of New South Wales Sydney">
+
+</div>
+
+<div class="library-info">
+
+<h3>
+State Library of NSW
+</h3>
+
+<div class="library-place">
+Sydney · Australia
+</div>
+
+<div class="library-links">
+
+<a
+target="_blank"
+rel="noopener"
+href="https://www.sl.nsw.gov.au/">
+
+Official site
+
+</a>
+
+<a
+target="_blank"
+rel="noopener"
+href="https://www.instagram.com/statelibrarynsw/">
+
+Instagram
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
 </section>
 
 
-<section class="libraries reveal" id="libraries">
+<!-- ================= CONTACT ================= -->
 
-  <div class="section-label">06 — Libraries & Research</div>
+<section id="contact" class="contact">
 
-  <h2 class="section-title">Places of<br>knowledge.</h2>
+<div class="container reveal">
 
-  <p class="section-intro">
-    A visual collection of major British and Australian
-    library institutions and research environments.
-  </p>
+<div class="section-kicker">
+Connect
+</div>
 
-  <div class="library-grid">
+<div class="contact-name">
+Jonathan Brown
+</div>
 
-    <a class="library"
-       href="https://www.bl.uk/"
-       target="_blank">
+<p
+class="section-intro"
+style="margin:0 auto 30px">
 
-      <span>United Kingdom</span>
-      <h3>British Library</h3>
-      <p>London · National Library of the United Kingdom</p>
-      <div class="library-link">Visit ↗</div>
+Follow the author and continue
+exploring the archive.
 
-    </a>
+</p>
 
+<a
+class="instagram"
+target="_blank"
+rel="noopener"
+href="https://www.instagram.com/_leomar3/">
 
-    <a class="library"
-       href="https://www.slv.vic.gov.au/"
-       target="_blank">
+Instagram · @_leomar3
 
-      <span>Australia</span>
-      <h3>State Library Victoria</h3>
-      <p>Melbourne · Research & Collections</p>
-      <div class="library-link">Visit ↗</div>
+</a>
 
-    </a>
-
-
-    <a class="library"
-       href="https://www.nla.gov.au/"
-       target="_blank">
-
-      <span>Australia</span>
-      <h3>National Library of Australia</h3>
-      <p>Canberra · National Collections</p>
-      <div class="library-link">Visit ↗</div>
-
-    </a>
-
-
-    <a class="library"
-       href="https://www.sl.nsw.gov.au/"
-       target="_blank">
-
-      <span>Australia</span>
-      <h3>State Library of NSW</h3>
-      <p>Sydney · Research & Heritage</p>
-      <div class="library-link">Visit ↗</div>
-
-    </a>
-
-  </div>
-</section>
-
-
-<section class="contact reveal" id="contact">
-
-  <div>
-
-    <div class="section-label">07 — Contact</div>
-
-    <h2>
-      Enter the<br>
-      <span>archive.</span>
-    </h2>
-
-    <p>
-      For literary correspondence, research enquiries
-      or information regarding the work of Jonathan Brown.
-    </p>
-
-    <a class="contact-link"
-       href="mailto:jonathanbrown.author@gmail.com">
-       Literary Correspondence
-    </a>
-
-  </div>
+</div>
 
 </section>
+
 
 </main>
 
 
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-  <div>© 2026 <strong>Jonathan Brown</strong></div>
+<div class="container footer-inner">
 
-  <div>Writer · Author · Archive</div>
+<span>
+© Jonathan Brown · Literary Archive
+</span>
+
+<span>
+Writer · Author · Observer
+</span>
+
+</div>
 
 </footer>
 
 
+<!-- ================= JAVASCRIPT ================= -->
+
 <script>
 
-/* SCROLL REVEAL */
+/* Scroll reveal */
 
-const reveals = document.querySelectorAll(".reveal");
+const observer =
+new IntersectionObserver(
 
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add("active");
-      }
-    });
-  },
-  {threshold:0.12}
-);
+(entries)=>{
 
-reveals.forEach(el => observer.observe(el));
+entries.forEach(entry=>{
 
+if(entry.isIntersecting){
 
-/* SUBTLE PARALLAX */
+entry.target.classList.add("visible");
 
-window.addEventListener("scroll", () => {
+observer.unobserve(entry.target);
 
-  const hero = document.querySelector(".hero-content");
-
-  if(window.scrollY < window.innerHeight){
-    hero.style.transform =
-      `translateY(${window.scrollY * 0.12}px)`;
-    hero.style.opacity =
-      1 - window.scrollY / 800;
-  }
+}
 
 });
+
+},
+
+{
+threshold:.12
+}
+
+);
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(element=>{
+observer.observe(element);
+});
+
+
+/* Cinematic intro movement */
+
+const intro =
+document.querySelector(".intro-inner");
+
+
+window.addEventListener(
+"scroll",
+()=>{
+
+const y =
+Math.min(
+window.scrollY,
+500
+);
+
+if(intro){
+
+intro.style.transform =
+`translateY(${y * .12}px)`;
+
+}
+
+},
+{
+passive:true
+}
+);
 
 </script>
 
