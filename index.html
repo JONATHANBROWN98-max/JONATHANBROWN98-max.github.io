@@ -1,1 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta name="google-site-verification" content="d1A0LOfk2evJ3VFQoeFC45Z0KVtVDqrfaiiyBWhrKuI">
+
+<!-- Jonathan Brown - Author Identity -->
+<meta name="author" content="Jonathan Brown">
+<meta name="description" content="Official website of Jonathan Brown, writer and author. Discover his books, writings, and literary projects.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Jonathan Brown",
+    "jobTitle": "Writer and Author",
+    "url": "https://jonathanbrown98-max.github.io/jonathanbrownbooks.github.io/",
+    "sameAs": [
+      "https://jonathanbrown98-max.github.io/jonathanbrownbooks.github.io/",
+      "https://jonthanbrownworks.blogspot.com/"
+    ]
+  }
+}
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jonathan Brown — Writer & Author</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Italiana&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --black:#050505;
+  --deep:#090909;
+  --paper:#eee9df;
+  --muted:#aaa59b;
+  --gold:#d2b477;
+  --gold2:#ead39b;
+  --white:#ffffff;
+  --line:rgba(238,233,223,.13);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  background:#050505;
+}
+
+body{
+  background:
+    radial-gradient(circle at 15% 20%,rgba(255,255,255,.035),transparent 30%),
+    radial-gradient(circle at 85% 70%,rgba(210,180,119,.045),transparent 30%),
+    #050505;
+  color:var(--paper);
+  overflow-x:hidden;
+  font-family:"Cormorant Garamond",serif;
+}
+
+/* =========================
+   WHITE FOG
+========================= */
+
+.fog{
+  position:fixed;
+  inset:-35%;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.18;
+  filter:blur(65px);
+}
+
+.fog.one{
+  background:
+    radial-gradient(ellipse at 25% 45%,
+      rgba(255,255,255,.9) 0%,
+      rgba(255,255,255,.28) 18%,
+      transparent 55%);
+  animation:fogMoveOne 24s ease-in-out infinite alternate;
+}
+
+.fog.two{
+  background:
+    radial-gradient(ellipse at 75% 55%,
+      rgba(255,255,255,.65) 0%,
+      rgba(255,255,255,.18) 20%,
+      transparent 55%);
+  animation:fogMoveTwo 31s ease-in-out infinite alternate;
+}
+
+.fog.three{
+  background:
+    radial-gradient(ellipse at 50% 90%,
+      rgba(255,255,255,.35),
+      transparent 55%);
+  opacity:.12;
+  animation:fogMoveThree 38s ease-in-out infinite alternate;
+}
+
+@keyframes fogMoveOne{
+  from{transform:translate(-7%,-3%) scale(1);}
+  to{transform:translate(8%,5%) scale(1.18);}
+}
+
+@keyframes fogMoveTwo{
+  from{transform:translate(8%,4%) scale(1.05);}
+  to{transform:translate(-8%,-5%) scale(1.2);}
+}
+
+@keyframes fogMoveThree{
+  from{transform:translateY(5%) scale(1);}
+  to{transform:translateY(-7%) scale(1.15);}
+}
+
+/* =========================
+   NAV
+========================= */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:25px 6vw;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:100;
+  transition:.5s;
+}
+
+nav.scrolled{
+  background:rgba(5,5,5,.72);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.logo{
+  font-family:"Italiana",serif;
+  font-size:27px;
+  color:var(--gold2);
+  text-decoration:none;
+  letter-spacing:.12em;
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+  list-style:none;
+}
+
+.nav-links a{
+  color:var(--muted);
+  text-decoration:none;
+  font-family:"Manrope",sans-serif;
+  font-size:9px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  transition:.4s;
+}
+
+.nav-links a:hover{
+  color:var(--gold2);
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+section{
+  position:relative;
+  min-height:100vh;
+  padding:150px 7vw;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.eyebrow{
+  font-family:"Manrope",sans-serif;
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:.38em;
+  text-transform:uppercase;
+  margin-bottom:30px;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(55px);
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+  min-height:100vh;
+  text-align:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.intro-circle{
+  position:absolute;
+  width:min(65vw,750px);
+  height:min(65vw,750px);
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:50%;
+  animation:rotate 35s linear infinite;
+}
+
+.intro-circle:after{
+  content:"";
+  position:absolute;
+  inset:13%;
+  border:1px solid rgba(210,180,119,.15);
+  border-radius:50%;
+}
+
+@keyframes rotate{
+  to{transform:rotate(360deg);}
+}
+
+.intro-content{
+  position:relative;
+  z-index:2;
+}
+
+.intro-small{
+  font-family:"Manrope",sans-serif;
+  font-size:9px;
+  letter-spacing:.48em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:38px;
+}
+
+.intro-name{
+  font-family:"Italiana",serif;
+  font-size:clamp(75px,13vw,185px);
+  line-height:.78;
+  letter-spacing:-.045em;
+  color:var(--paper);
+}
+
+.intro-name span{
+  color:var(--gold2);
+}
+
+.intro-date{
+  margin-top:45px;
+  font-family:"Manrope",sans-serif;
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:.45em;
+}
+
+.enter{
+  display:inline-block;
+  margin-top:55px;
+  color:var(--paper);
+  text-decoration:none;
+  font-family:"Manrope",sans-serif;
+  font-size:9px;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--gold);
+  padding-bottom:10px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero-title{
+  font-family:"Italiana",serif;
+  font-size:clamp(85px,15vw,210px);
+  line-height:.72;
+  letter-spacing:-.05em;
+  max-width:1200px;
+}
+
+.hero-title em{
+  color:var(--gold2);
+  font-style:normal;
+  display:inline-block;
+  transform:translateX(8vw) rotate(-2deg);
+}
+
+.hero-description{
+  margin-top:80px;
+  max-width:560px;
+  font-size:25px;
+  line-height:1.45;
+  color:var(--muted);
+}
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote{
+  text-align:center;
+  align-items:center;
+  min-height:75vh;
+}
+
+.quote-text{
+  max-width:1050px;
+  font-size:clamp(45px,6vw,88px);
+  line-height:.98;
+  letter-spacing:-.035em;
+}
+
+.quote-text em{
+  color:var(--gold2);
+}
+
+.quote-by{
+  margin-top:40px;
+  font-family:"Manrope",sans-serif;
+  font-size:9px;
+  letter-spacing:.35em;
+  color:var(--muted);
+  text-transform:uppercase;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.section-title{
+  font-family:"Italiana",serif;
+  font-size:clamp(65px,10vw,150px);
+  line-height:.78;
+  letter-spacing:-.045em;
+}
+
+.section-title span{
+  color:var(--gold2);
+}
+
+.about-grid{
+  margin-top:85px;
+  display:grid;
+  grid-template-columns:1fr 1.5fr;
+  gap:100px;
+}
+
+.about-number{
+  font-family:"Italiana",serif;
+  font-size:120px;
+  color:var(--gold);
+  opacity:.7;
+}
+
+.about-text{
+  max-width:700px;
+  color:var(--muted);
+  font-size:26px;
+  line-height:1.5;
+}
+
+/* =========================
+   BOOKS
+========================= */
+
+.books{
+  background:
+    radial-gradient(circle at 90% 25%,
+      rgba(255,255,255,.035),
+      transparent 30%);
+}
+
+.book-list{
+  margin-top:90px;
+  border-top:1px solid var(--line);
+}
+
+.book{
+  padding:58px 0;
+  border-bottom:1px solid var(--line);
+  display:grid;
+  grid-template-columns:70px 1fr auto;
+  align-items:center;
+  gap:30px;
+  position:relative;
+  transition:.7s cubic-bezier(.16,1,.3,1);
+}
+
+.book:hover{
+  padding-left:25px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.025),
+    transparent
+  );
+}
+
+.book-number{
+  font-family:"Manrope",sans-serif;
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:.3em;
+}
+
+.book-title{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(34px,4.4vw,65px);
+  line-height:.9;
+  color:var(--paper);
+  transition:.5s;
+}
+
+.book:hover .book-title{
+  color:var(--gold2);
+}
+
+.book-visits{
+  text-align:right;
+  min-width:190px;
+}
+
+.visits-number{
+  display:block;
+  font-family:"Italiana",serif;
+  font-size:clamp(55px,6vw,92px);
+  line-height:.7;
+  color:var(--gold2);
+  letter-spacing:-.035em;
+  text-shadow:
+    0 0 35px rgba(210,180,119,.12);
+}
+
+.visits-word{
+  display:block;
+  margin-top:18px;
+  font-family:"Manrope",sans-serif;
+  font-size:9px;
+  letter-spacing:.42em;
+  color:var(--muted);
+}
+
+/* =========================
+   JOURNEY
+========================= */
+
+.timeline{
+  margin-top:90px;
+  border-left:1px solid var(--line);
+  padding-left:45px;
+  display:flex;
+  flex-direction:column;
+  gap:75px;
+}
+
+.timeline-item{
+  position:relative;
+}
+
+.timeline-item:before{
+  content:"";
+  position:absolute;
+  left:-51px;
+  top:7px;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--gold);
+}
+
+.timeline-year{
+  font-family:"Manrope",sans-serif;
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:.3em;
+}
+
+.timeline-title{
+  font-size:44px;
+  margin:14px 0;
+}
+
+.timeline-text{
+  max-width:650px;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.7;
+}
+
+/* =========================
+   ARCHIVE
+========================= */
+
+.archive{
+  text-align:center;
+  align-items:center;
+}
+
+.archive-word{
+  font-family:"Italiana",serif;
+  font-size:clamp(90px,18vw,270px);
+  line-height:.7;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(210,180,119,.6);
+  animation:archiveMove 8s ease-in-out infinite alternate;
+}
+
+@keyframes archiveMove{
+  from{transform:translateX(-2%) rotate(-2deg);}
+  to{transform:translateX(2%) rotate(1deg);}
+}
+
+/* =========================
+   LIBRARIES
+========================= */
+
+.library-grid{
+  margin-top:85px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:40px;
+}
+
+.library{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.018);
+  overflow:hidden;
+  transition:.7s;
+}
+
+.library:hover{
+  transform:translateY(-8px);
+  border-color:rgba(210,180,119,.3);
+}
+
+.library-image{
+  width:100%;
+  height:330px;
+  object-fit:cover;
+  display:block;
+  filter:grayscale(18%);
+  transition:1s;
+}
+
+.library:hover .library-image{
+  transform:scale(1.05);
+  filter:grayscale(0%);
+}
+
+.library-info{
+  padding:30px;
+}
+
+.library-country{
+  font-family:"Manrope",sans-serif;
+  color:var(--gold);
+  font-size:8px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+}
+
+.library-name{
+  margin-top:14px;
+  font-size:39px;
+  line-height:.95;
+}
+
+.library-links{
+  margin-top:25px;
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.library-links a{
+  color:var(--muted);
+  text-decoration:none;
+  font-family:"Manrope",sans-serif;
+  font-size:8px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  border-bottom:1px solid rgba(210,180,119,.35);
+  padding-bottom:7px;
+}
+
+.library-links a:hover{
+  color:var(--gold2);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+  text-align:center;
+  align-items:center;
+}
+
+.contact-title{
+  font-family:"Italiana",serif;
+  font-size:clamp(70px,12vw,170px);
+  line-height:.72;
+}
+
+.contact-title span{
+  color:var(--gold2);
+}
+
+.instagram{
+  margin-top:70px;
+  font-size:30px;
+  color:var(--paper);
+  text-decoration:none;
+  border-bottom:1px solid var(--gold);
+  padding-bottom:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  padding:50px 7vw;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.footer-name{
+  font-family:"Italiana",serif;
+  font-size:24px;
+  color:var(--gold2);
+}
+
+.footer-info{
+  font-family:"Manrope",sans-serif;
+  color:var(--muted);
+  font-size:8px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+  nav{
+    padding:20px 6vw;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  section{
+    min-height:auto;
+    padding:120px 7vw;
+  }
+
+  .intro{
+    min-height:100vh;
+  }
+
+  .intro-circle{
+    width:110vw;
+    height:110vw;
+  }
+
+  .intro-name{
+    font-size:23vw;
+  }
+
+  .hero{
+    min-height:100vh;
+  }
+
+  .hero-title{
+    font-size:23vw;
+  }
+
+  .hero-title em{
+    transform:translateX(0) rotate(-2deg);
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .about-number{
+    font-size:80px;
+  }
+
+  .about-text{
+    font-size:23px;
+  }
+
+  .book{
+    grid-template-columns:35px 1fr;
+    gap:15px;
+    padding:42px 0;
+  }
+
+  .book-visits{
+    grid-column:2;
+    text-align:left;
+    margin-top:18px;
+  }
+
+  .visits-number{
+    font-size:70px;
+  }
+
+  .library-grid{
+    grid-template-columns:1fr;
+  }
+
+  .library-image{
+    height:280px;
+  }
+
+  footer{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+  }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="fog one"></div>
+<div class="fog two"></div>
+<div class="fog three"></div>
+
+<nav id="nav">
+
+  <a href="#top" class="logo">JB</a>
+
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#books">Works</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#archive">Archive</a></li>
+    <li><a href="#libraries">Libraries</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+</nav>
+
+<section class="intro" id="top">
+
+  <div class="intro-circle"></div>
+
+  <div class="intro-content">
+
+    <div class="intro-small">
+      Writer · Author · Literary Archive
+    </div>
+
+    <div class="intro-name">
+      Jonathan<br>
+      <span>Brown</span>
+    </div>
+
+    <div class="intro-date">
+      03 · JUNE · 2008
+    </div>
+
+    <a class="enter" href="#about">
+      Enter the archive
+    </a>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="eyebrow reveal">
+    Writer · Author · Literary Archive
+  </div>
+
+  <h1 class="hero-title reveal">
+    Jonathan<br>
+    <em>Brown.</em>
+  </h1>
+
+  <p class="hero-description reveal">
+    A literary archive exploring consciousness,
+    memory, algorithms, desire, history and the
+    strange architecture of human thought.
+  </p>
+
+</section>
+
+<section class="quote">
+
+  <div class="eyebrow reveal">
+    A fragment
+  </div>
+
+  <div class="quote-text reveal">
+    “The page does not remember the writer.
+    <em>The reader does.</em>”
+  </div>
+
+  <div class="quote-by reveal">
+    Jonathan Brown
+  </div>
+
+</section>
+
+<section id="about">
+
+  <div class="eyebrow reveal">
+    01 · About
+  </div>
+
+  <h2 class="section-title reveal">
+    A life written<br>
+    in <span>chapters.</span>
+  </h2>
+
+  <div class="about-grid">
+
+    <div class="about-number reveal">
+      03
+    </div>
+
+    <div class="about-text reveal">
+
+      Born on <strong>3 June 2008</strong>,
+      Jonathan Brown began writing in Richmond, Britain.
+
+      <br><br>
+
+      His literary journey expanded after the publication
+      of his first book in Melbourne, Australia, followed
+      by a period of exploration in Sydney.
+
+      <br><br>
+
+      His work has been described by the author as reaching
+      readers and audiences across the United States,
+      the Netherlands, South Africa, Asia and New Zealand.
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="books" id="books">
+
+  <div class="eyebrow reveal">
+    02 · Selected works
+  </div>
+
+  <h2 class="section-title reveal">
+    The<br>
+    <span>Books.</span>
+  </h2>
+
+  <div class="book-list">
+
+    <article class="book reveal">
+
+      <div class="book-number">01</div>
+
+      <div class="book-title">
+        Relative Awareness
+      </div>
+
+      <div class="book-visits">
+        <span class="visits-number">289K</span>
+        <span class="visits-word">VISITS</span>
+      </div>
+
+    </article>
+
+    <article class="book reveal">
+
+      <div class="book-number">02</div>
+
+      <div class="book-title">
+        The First Algorithm’s Echo:
+        When the Stone Spoke
+      </div>
+
+      <div class="book-visits">
+        <span class="visits-number">351K</span>
+        <span class="visits-word">VISITS</span>
+      </div>
+
+    </article>
+
+    <article class="book reveal">
+
+      <div class="book-number">03</div>
+
+      <div class="book-title">
+        The Psychology of Eternal Thirst
+      </div>
+
+      <div class="book-visits">
+        <span class="visits-number">117K</span>
+        <span class="visits-word">VISITS</span>
+      </div>
+
+    </article>
+
+    <article class="book reveal">
+
+      <div class="book-number">04</div>
+
+      <div class="book-title">
+        The Authorized Archive of Oblivion
+      </div>
+
+      <div class="book-visits">
+        <span class="visits-number">68K</span>
+        <span class="visits-word">VISITS</span>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+<section id="journey">
+
+  <div class="eyebrow reveal">
+    03 · Journey
+  </div>
+
+  <h2 class="section-title reveal">
+    From one city<br>
+    to <span>another.</span>
+  </h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item reveal">
+      <div class="timeline-year">ORIGIN</div>
+
+      <h3 class="timeline-title">
+        Richmond, Britain
+      </h3>
+
+      <p class="timeline-text">
+        The beginning of the writing journey and the place
+        where the first pages took shape.
+      </p>
+    </div>
+
+    <div class="timeline-item reveal">
+
+      <div class="timeline-year">
+        FIRST PUBLICATION
+      </div>
+
+      <h3 class="timeline-title">
+        Melbourne, Australia
+      </h3>
+
+      <p class="timeline-text">
+        The first book was published in Melbourne,
+        opening a new chapter in the literary path.
+      </p>
+
+    </div>
+
+    <div class="timeline-item reveal">
+
+      <div class="timeline-year">
+        EXPLORATION
+      </div>
+
+      <h3 class="timeline-title">
+        Sydney
+      </h3>
+
+      <p class="timeline-text">
+        A period of exploration, movement and ideas.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="archive" id="archive">
+
+  <div class="eyebrow reveal">
+    04 · The archive
+  </div>
+
+  <div class="archive-word reveal">
+    ARCHIVE
+  </div>
+
+  <div class="eyebrow reveal">
+    Pages · Ideas · Memory · Time
+  </div>
+
+</section>
+
+<section id="libraries">
+
+  <div class="eyebrow reveal">
+    05 · Libraries & Research
+  </div>
+
+  <h2 class="section-title reveal">
+    Rooms of<br>
+    <span>memory.</span>
+  </h2>
+
+  <div class="library-grid">
+
+    <article class="library reveal">
+
+      <img
+        class="library-image"
+        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/British_library_london.jpg"
+        alt="British Library"
+      >
+
+      <div class="library-info">
+
+        <div class="library-country">
+          United Kingdom
+        </div>
+
+        <h3 class="library-name">
+          British Library
+        </h3>
+
+        <div class="library-links">
+
+          <a href="https://www.bl.uk/" target="_blank">
+            Official Website
+          </a>
+
+          <a href="https://www.instagram.com/britishlibrary/" target="_blank">
+            Instagram
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <article class="library reveal">
+
+      <img
+        class="library-image"
+        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/State_Library_Victoria_exterior.jpg"
+        alt="State Library Victoria"
+      >
+
+      <div class="library-info">
+
+        <div class="library-country">
+          Melbourne · Australia
+        </div>
+
+        <h3 class="library-name">
+          State Library Victoria
+        </h3>
+
+        <div class="library-links">
+
+          <a href="https://www.slv.vic.gov.au/" target="_blank">
+            Official Website
+          </a>
+
+          <a href="https://www.instagram.com/library_vic/" target="_blank">
+            Instagram
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <article class="library reveal">
+
+      <img
+        class="library-image"
+        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/South_fa%C3%A7ade_of_the_National_Library_of_Australia.jpg"
+        alt="National Library of Australia"
+      >
+
+      <div class="library-info">
+
+        <div class="library-country">
+          Canberra · Australia
+        </div>
+
+        <h3 class="library-name">
+          National Library of Australia
+        </h3>
+
+        <div class="library-links">
+
+          <a href="https://www.nla.gov.au/" target="_blank">
+            Official Website
+          </a>
+
+          <a href="https://www.instagram.com/nationallibraryaus/" target="_blank">
+            Instagram
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <article class="library reveal">
+
+      <img
+        class="library-image"
+        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The_State_Library_of_New_South_Wales.jpg"
+        alt="State Library of New South Wales"
+      >
+
+      <div class="library-info">
+
+        <div class="library-country">
+          Sydney · Australia
+        </div>
+
+        <h3 class="library-name">
+          State Library of New South Wales
+        </h3>
+
+        <div class="library-links">
+
+          <a href="https://www.sl.nsw.gov.au/" target="_blank">
+            Official Website
+          </a>
+
+          <a href="https://www.instagram.com/statelibrarynsw/" target="_blank">
+            Instagram
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+  <div class="eyebrow reveal">
+    06 · Presence
+  </div>
+
+  <h2 class="contact-title reveal">
+    Follow the<br>
+    <span>archive.</span>
+  </h2>
+
+  <a
+    class="instagram reveal"
+    href="https://www.instagram.com/_leomar3/"
+    target="_blank"
+  >
+    Instagram · @_leomar3
+  </a>
+
+</section>
+
+<footer>
+
+  <div class="footer-name">
+    Jonathan Brown
+  </div>
+
+  <div class="footer-info">
+    Writer · Author · Literary Archive
+  </div>
+
+</footer>
+
+<script>
+
+const nav=document.getElementById("nav");
+
+window.addEventListener("scroll",()=>{
+  if(window.scrollY>40){
+    nav.classList.add("scrolled");
+  }else{
+    nav.classList.remove("scrolled");
+  }
+});
+
+const observer=new IntersectionObserver(
+  entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {threshold:.12}
+);
+
+document
+  .querySelectorAll(".reveal")
+  .forEach(el=>observer.observe(el));
+
+document.addEventListener("mousemove",e=>{
+
+  const x=(e.clientX/window.innerWidth-.5)*4;
+  const y=(e.clientY/window.innerHeight-.5)*3;
+
+  document.querySelectorAll(".fog").forEach((fog,i)=>{
+    fog.style.marginLeft=(x*(i+1))+"px";
+    fog.style.marginTop=(y*(i+1))+"px";
+  });
+
+});
+
+</script>
+
+</body>
+</html>
