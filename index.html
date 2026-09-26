@@ -148,11 +148,16 @@ nav.scrolled{
 }
 
 .logo{
-  font-family:"Italiana",serif;
-  font-size:27px;
-  color:var(--gold2);
+  display:flex;
+  align-items:center;
   text-decoration:none;
-  letter-spacing:.12em;
+}
+
+.logo img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+  display:block;
 }
 
 .nav-links{
@@ -775,7 +780,9 @@ footer{
 
 <nav id="nav">
 
-  <a href="#top" class="logo">JB</a>
+  <a href="#top" class="logo">
+    <img src="841C29BD-1A2E-4488-9A48-579FA5E76144.png" alt="Jonathan Brown">
+  </a>
 
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
